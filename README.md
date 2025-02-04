@@ -1,5 +1,13 @@
+<div align=center>
+
 bf Dispatch Study
 =================
+
+<br>
+
+</div>
+
+<div align=justify>
 
 This repository contains code for three different
 [bf](https://en.wikipedia.org/wiki/Brainfuck) interpreters. The implementations
@@ -138,3 +146,5 @@ bf-tail:
 3.74user 0.00system 0:03.74elapsed 100%CPU (0avgtext+0avgdata 1396maxresident)k
 0inputs+0outputs (0major+99minor)pagefaults 0swaps
 ```
+
+</div>
