@@ -28,7 +28,7 @@ TARGET(MOVE_LEFT)
 TARGET(MOVE_RIGHT)
 {
     while (size <= head + ip->oparg) {
-        // Slow path: tape needs to be grow.
+        // Slow path: tape needs to grow.
         if (grow_right(&tape, &head, &size)) {
             free(tape);
             return -1;
