@@ -7,7 +7,7 @@ are all identical except for the dispatch mechanism used to execute the
 instructions. The instructions are implemented in [`cases.h`](cases.h); each
 interpreter defines its own `TARGET` and `DISPATCH` macros before `#include`'ing
 the cases. Non-performance-critical code shared by all interpreters is defined
-in [`common.h`](common.h).
+in [`common.c`](common.c).
 
 ### [`bf-loop`](bf-loop.c)
 
