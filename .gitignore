@@ -1,0 +1,6 @@
+*.o
+.DS_Store
+.vscode/
+bf-goto
+bf-loop
+bf-tail
