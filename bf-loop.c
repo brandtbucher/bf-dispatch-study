@@ -13,7 +13,7 @@
 #define LOOP_END   ']'
 #define READ       ','
 #define WRITE      '.'
-#define RETURN    '\0'
+#define RETURN     '\0'
 
 int
 eval(const instruction_t *ip, cell_t tape[], size_t head, size_t size)

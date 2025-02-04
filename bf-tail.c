@@ -18,14 +18,14 @@ static handler_t *handlers[];
 #include "cases.h"
 
 static handler_t *handlers[] = {
-    ['+'] = INCREMENT,
-    ['-'] = DECREMENT,
-    ['<'] = MOVE_LEFT,
-    ['>'] = MOVE_RIGHT,
-    ['['] = LOOP_BEGIN,
-    [']'] = LOOP_END,
-    [','] = READ,
-    ['.'] = WRITE,
+    ['+']  = INCREMENT,
+    ['-']  = DECREMENT,
+    ['<']  = MOVE_LEFT,
+    ['>']  = MOVE_RIGHT,
+    ['[']  = LOOP_BEGIN,
+    [']']  = LOOP_END,
+    [',']  = READ,
+    ['.']  = WRITE,
     ['\0'] = RETURN,
 };
 
