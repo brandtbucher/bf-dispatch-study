@@ -35,6 +35,13 @@ grow_right(cell_t *tape_p[], size_t *head_p, size_t *size_p)
     return 0;
 }
 
+static const char opposites[CHAR_MAX] = {
+    ['+'] = '-',
+    ['-'] = '+',
+    ['<'] = '>',
+    ['>'] = '<',
+};
+
 // Parse the code in file into an array of instruction_ts.
 static instruction_t *
 parse(FILE *file)
@@ -53,9 +60,19 @@ parse(FILE *file)
             case '<':
             case '>':
                 // oparg is the number of repetitions.
-                if (i && code[i - 1].opcode == c) {
-                    code[i - 1].oparg++;
-                    continue;
+                if (i) {
+                    instruction_t *previous = &code[i - 1];
+                    if (previous->opcode == c) {
+                        previous->oparg++;
+                        continue;
+                    }
+                    // Peephole opposite instructions:
+                    if (previous->opcode == opposites[c]) {
+                        if (--previous->oparg == 0) {
+                            i--;
+                        }
+                        continue;
+                    }
                 }
                 code[i++] = (instruction_t){c, 1};
                 break;
