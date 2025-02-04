@@ -47,7 +47,7 @@ Each interpreter can be built by running `make <name>`. The resulting binary
 takes one argument: a path to a program to interpret. For convenience, a sample
 Mandelbrot program is provided in [`mandelbrot.bf`](mandelbrot.bf).
 
-```bash
+```console
 $ make bf-loop
 cc -O3 -Wall   -c -o bf-loop.o bf-loop.c
 cc -O3 -Wall   -c -o common.o common.c
@@ -108,7 +108,7 @@ Clang 19 is currently the only compiler that supports all three dispatch
 mechanisms, you may need to install it and modify the `CC` environment variable
 appropriately:
 
-```bash
+```console
 $ CC=clang-19 make
 clang-19 -O3 -Wall   -c -o bf-loop.o bf-loop.c
 clang-19 -O3 -Wall   -c -o common.o common.c
@@ -123,7 +123,7 @@ All three interpreters can also be (roughly) compared with the `make time`
 target. This will run each interpreter on the Mandelbrot program using the
 `time` command.
 
-```bash
+```console
 $ CC=clang-19 make time > /dev/null
 
 bf-loop:
