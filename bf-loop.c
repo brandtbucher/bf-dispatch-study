@@ -16,7 +16,7 @@
 #define RETURN    '\0'
 
 int
-eval(const instruction_t *ip, unsigned char tape[], size_t head, size_t size)
+eval(const instruction_t *ip, cell_t tape[], size_t head, size_t size)
 {
     for (;; ip++) {
         switch (ip->opcode) {

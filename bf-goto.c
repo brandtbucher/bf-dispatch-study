@@ -6,7 +6,7 @@
 #define DISPATCH     goto *labels[(++ip)->opcode];
 
 int
-eval(const instruction_t *ip, unsigned char tape[], size_t head, size_t size)
+eval(const instruction_t *ip, cell_t tape[], size_t head, size_t size)
 {
     static void *labels[] = {
         ['+'] = &&INCREMENT,

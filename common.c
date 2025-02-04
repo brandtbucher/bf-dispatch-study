@@ -4,15 +4,15 @@
 
 // [HEAD ...] -> [... HEAD ...]
 int
-grow_left(unsigned char *tape_p[], size_t *head_p, size_t *size_p)
+grow_left(cell_t *tape_p[], size_t *head_p, size_t *size_p)
 {
     size_t size = *size_p;
-    unsigned char *tape = malloc(2 * size * sizeof(unsigned char));
+    cell_t *tape = malloc(2 * size * sizeof(cell_t));
     if (tape == NULL) {
         return -1;
     }
     memset(tape, 0, size);
-    memcpy(tape + size, *tape_p, size * sizeof(unsigned char));
+    memcpy(tape + size, *tape_p, size * sizeof(cell_t));
     free(*tape_p);
     *tape_p = tape;
     *head_p += size;
@@ -22,14 +22,14 @@ grow_left(unsigned char *tape_p[], size_t *head_p, size_t *size_p)
 
 // [... HEAD] -> [... HEAD ...]
 int
-grow_right(unsigned char *tape_p[], size_t *head_p, size_t *size_p)
+grow_right(cell_t *tape_p[], size_t *head_p, size_t *size_p)
 {
     size_t size = *size_p;
-    unsigned char *tape = realloc(*tape_p, 2 * size * sizeof(unsigned char));
+    cell_t *tape = realloc(*tape_p, 2 * size * sizeof(cell_t));
     if (tape == NULL) {
         return -1;
     }
-    memset(tape + size, 0, size);
+    memset(tape + size, 0, size * sizeof(cell_t));
     *tape_p = tape;
     *size_p += size;
     return 0;
@@ -122,7 +122,7 @@ main(int argc, char *argv[])
         return -1;
     }
     size_t head = 0, size = 1;
-    unsigned char *tape = calloc(size, sizeof(unsigned char));
+    cell_t *tape = calloc(size, sizeof(cell_t));
     if (tape == NULL) {
         free(code);
         return -1;
